@@ -1,0 +1,122 @@
+[
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "GAN",
+        "Attack Success Rate(%)": 56
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "GAN",
+        "Attack Success Rate(%)": 52
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "GAN",
+        "Attack Success Rate(%)": 54
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "GAN",
+        "Attack Success Rate(%)": 54
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "GAN",
+        "Attack Success Rate(%)": 55
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "GAN",
+        "Attack Success Rate(%)": 53
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "GAN",
+        "Attack Success Rate(%)": 52
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "GAN",
+        "Attack Success Rate(%)": 56
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "GAN",
+        "Attack Success Rate(%)": 54
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "GAN",
+        "Attack Success Rate(%)": 55
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "TextBugger",
+        "Attack Success Rate(%)": 73
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "TextBugger",
+        "Attack Success Rate(%)": 74
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "TextBugger",
+        "Attack Success Rate(%)": 74
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "TextBugger",
+        "Attack Success Rate(%)": 70
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "TextBugger",
+        "Attack Success Rate(%)": 72
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "TextBugger",
+        "Attack Success Rate(%)": 71
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "TextBugger",
+        "Attack Success Rate(%)": 73
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "TextBugger",
+        "Attack Success Rate(%)": 75
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "TextBugger",
+        "Attack Success Rate(%)": 71
+    },
+    {
+        "Model Name": "distilbert-base-uncased-finetuned-sst-2-english",
+        "Dataset": "sst2",
+        "Attack method": "TextBugger",
+        "Attack Success Rate(%)": 74
+    }
+]
