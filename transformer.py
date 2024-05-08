@@ -29,14 +29,12 @@ os.environ['https_proxy'] = 'http://127.0.0.1:7890'
 
 
 attacker_names = {
-    # "TextFooler": OpenAttack.attackers.TextFoolerAttacker(),
-    # "PWWS": OpenAttack.attackers.PWWSAttacker(),
+    "TextFooler": OpenAttack.attackers.TextFoolerAttacker(),
+    "PWWS": OpenAttack.attackers.PWWSAttacker(),
     "TextBugger": OpenAttack.attackers.TextBuggerAttacker(),
-    "DeepWordBug": OpenAttack.attackers.DeepWordBugAttacker(),
-    # "HotFlip": OpenAttack.attackers.HotFlipAttacker(),
-    # "SCPN": OpenAttack.attackers.SCPNAttacker(),
+    "HotFlip": OpenAttack.attackers.HotFlipAttacker(),
+    "SCPN": OpenAttack.attackers.SCPNAttacker(),
     "GAN": OpenAttack.attackers.GANAttacker(),
-    # 其他攻击器可以按需添加
 }
 
 
