@@ -11,6 +11,9 @@ Documents the prompt templates utilized when interacting with Large Language Mod
 ### model_info.json
 The JSON file includes upstream model information of the text classification models collected from the Hugging Face platform. You can use the NEO4J database to establish a visualized upstream and downstream model chain.
 
+![Model Chain Visualization](graph.png)
+
+*This image shows the visualized upstream and downstream model chain established using the NEO4J database.*
 ### internal_threats_experimental_results.json
 This JSON file logs the experimental results of two attack methodologies, TextBugger and GAN, specifically focusing on their volatility. It provides empirical evidence for the "internal threats" section of our research.
  
