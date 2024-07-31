@@ -9,7 +9,8 @@ Contains detailed information about the test models and datasets used during the
 ### prompt.py
 Documents the prompt templates utilized when interacting with Large Language Models (LLMs) as part of our experimental setup.
 ### model_info.json
-A JSON file that captures the details of text classification models sourced from the Hugging Face platform.
+The JSON file includes upstream model information of the text classification models collected from the Hugging Face platform. You can use the NEO4J database to establish a visualized upstream and downstream model chain.
+
 ### internal_threats_experimental_results.json
 This JSON file logs the experimental results of two attack methodologies, TextBugger and GAN, specifically focusing on their volatility. It provides empirical evidence for the "internal threats" section of our research.
  
