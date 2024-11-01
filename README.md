@@ -17,22 +17,19 @@ The JSON file includes upstream model information of the text classification mod
 ### internal_threats_experimental_results.json
 This JSON file logs the experimental results of two attack methodologies, TextBugger and GAN, specifically focusing on their volatility. It provides empirical evidence for the "internal threats" section of our research.
  
-### LLM 鲁棒性测试实验
+### LLM Robustness Test Experiment
 
-我们对 Llama 模型在文本分类任务上的对抗鲁棒性进行了初步测试。
+We conducted a preliminary test on the adversarial robustness of the Llama model in text classification tasks.
 
-#### 实验设置
+#### Experimental Setup
 
-- **模型与平台**：我们使用了 HuggingChat 平台，选择了 `meta-llama/Llama-3.2-11B-Vision-Instruct` 模型。
+- **Model and Platform**: We chose Huggingface's official platform, HuggingChat, as the experimental platform. For the model, we selected the latest version of Llama, `Llama-3.2-11B-Vision-Instruct`, as the experimental model.
 
-- **实验提示语（Prompt）**：
+- **Experimental Prompt**:Please tell me whether the sentiment of this sentence is positive or negative. Just answer "positive" or "negative": SENTENCE
 
-Please tell me whether the sentiment of this sentence is positive or negative. Just answer "positive" or "negative": SENTENCE
+#### Experimental Method
 
-
-#### 实验方法
-
-- **样本选择**：从以下六种攻击方式成功生成对抗样本的案例中，各随机选取 20 条（只有攻击成功才会生成对抗样本）：
+- **Sample Selection**: Randomly selected 20 adversarial examples (only those that were successfully attacked to generate adversarial samples) from each of the following six attack methods, totaling 120 samples:
 
 - TextFooler
 - TextBugger
@@ -41,26 +38,28 @@ Please tell me whether the sentiment of this sentence is positive or negative. J
 - HotFlip
 - GAN
 
-- **测试流程**：
+- **Testing Procedure**:
 
-1. 将每条原始样本和对应的对抗样本分别输入 Llama 模型。
-2. 比较模型对原始样本和对抗样本的分类结果：
-   - 如果结果不同，视为对抗攻击成功。
-   - 如果结果一致，视为对抗攻击失败。
+1. Input each original sample and its corresponding adversarial sample into the Llama model separately.
+2. Compare the model's classification results:
+   - If the results are different, the adversarial attack is considered successful.
+   - If the results are the same, the attack is considered failed.
 
-#### 实验结果
+#### Experimental Results
 
-| 攻击方法     | 攻击成功率    | 成功样本数   |
-| ------------ | ------------- | ------------ |
-| TextFooler   | 8/20 （40%）  | 8 条         |
-| TextBugger   | 8/20 （40%）  | 8 条         |
-| SCPN         | 10/20 （50%） | 10 条        |
-| PWWS         | 10/20 （50%） | 10 条        |
-| HotFlip      | 8/20 （40%）  | 8 条         |
-| GAN          | 16/20 （80%） | 16 条        |
-| **平均成功率** | **50%**       | 60/120 条    |
+| Attack Method  | Success Rate    | Successful Samples |
+| -------------- | --------------- | ------------------ |
+| TextFooler     | 8/20 (40%)      | 8 samples          |
+| TextBugger     | 8/20 (40%)      | 8 samples          |
+| SCPN           | 10/20 (50%)     | 10 samples         |
+| PWWS           | 10/20 (50%)     | 10 samples         |
+| HotFlip        | 8/20 (40%)      | 8 samples          |
+| GAN            | 16/20 (80%)     | 16 samples         |
+| **Average**    | **50%**         | 60/120 samples     |
 
-#### 结论
+#### Conclusion
 
-实验结果表明，当前的通用大型语言模型（如 Llama）在文本分类任务上的对抗鲁棒性仍有较大的提升空间。
+The results indicate that current general-purpose large language models (such as Llama) still have significant room for improvement in adversarial robustness on text classification tasks.
+
+
 
