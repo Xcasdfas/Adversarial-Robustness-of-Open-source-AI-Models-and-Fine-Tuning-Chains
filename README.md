@@ -17,7 +17,7 @@ The JSON file includes upstream model information of the text classification mod
 ### internal_threats_experimental_results.json
 This JSON file logs the experimental results of two attack methodologies, TextBugger and GAN, specifically focusing on their volatility. It provides empirical evidence for the "internal threats" section of our research.
  
-### LLM Robustness Test Experiment
+### LLM Robustness Evaluation
 
 We conducted a preliminary test on the adversarial robustness of the Llama model in text classification tasks.
 
@@ -62,7 +62,7 @@ We conducted a preliminary test on the adversarial robustness of the Llama model
 The results indicate that current general-purpose large language models (such as Llama) still have significant room for improvement in adversarial robustness on text classification tasks.
 
 
-### Transferability Test of Adversarial Robustness on Llama Models
+### The Robustness Evaluation of the Downstream Fine-tuned LLM
 
 We conducted a preliminary test on the transferability of adversarial robustness for Llama models in text classification tasks.
 
