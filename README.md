@@ -106,7 +106,7 @@ We conducted a preliminary test on the transferability of adversarial robustness
 
 ### Transferability Rates
 
-| Attack Method  | Transferability Rate | Transferred Samples |
+| Attack Method  | Transferable Rate    | Transferred Samples |
 | -------------- | -------------------- | ------------------- |
 | TextFooler     | 75%                  | 6/8                 |
 | TextBugger     | 62.5%                | 5/8                 |
