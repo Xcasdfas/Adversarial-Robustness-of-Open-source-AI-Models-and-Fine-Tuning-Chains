@@ -29,7 +29,7 @@ We conducted a preliminary test on the adversarial robustness of the Llama model
 
 #### Experimental Method
 
-- **Sample Selection**: Randomly selected 20 adversarial examples (only those that were successfully attacked to generate adversarial samples) from each of the following six attack methods, totaling 120 samples:
+**Sample Selection**: Randomly selected 20 adversarial examples (only those that were successfully attacked to generate adversarial samples) from each of the following six attack methods, totaling 120 samples:
 
 - TextFooler
 - TextBugger
@@ -38,7 +38,7 @@ We conducted a preliminary test on the adversarial robustness of the Llama model
 - HotFlip
 - GAN
 
-- **Testing Procedure**:
+**Testing Procedure**:
 
 1. Input each original sample and its corresponding adversarial sample into the Llama model separately.
 2. Compare the model's classification results:
@@ -55,11 +55,69 @@ We conducted a preliminary test on the adversarial robustness of the Llama model
 | PWWS           | 10/20 (50%)     | 10 samples         |
 | HotFlip        | 8/20 (40%)      | 8 samples          |
 | GAN            | 16/20 (80%)     | 16 samples         |
-| **Average**    | **50%**         | 60/120 samples     |
+| **Average**    | **50%**         | **60/120 samples** |
 
 #### Conclusion
 
 The results indicate that current general-purpose large language models (such as Llama) still have significant room for improvement in adversarial robustness on text classification tasks.
 
+
+### Transferability Test of Adversarial Robustness on Llama Models
+
+We conducted a preliminary test on the transferability of adversarial robustness for Llama models in text classification tasks.
+
+#### Experimental Setup
+
+- **Model and Platform**:We deployed the `lamm-mit/Cephalo-Llama-3.2-11B-Vision-Instruct-128k` model locally for the transferability test. This model is fine-tuned from `meta-llama/Llama-3.2-11B-Vision-Instruct` and has a high number of downloads, indicating its widespread use.
+
+- **Experimental Prompt**:Please tell me whether the sentiment of this sentence is positive or negative. Just answer "positive" or "negative": SENTENCE
+
+#### Experimental Method
+
+**Sample Selection**: The same set of test samples as used for the upstream model was selected, totaling 120 samples from the following attack methods:
+
+- TextFooler
+- TextBugger
+- SCPN
+- PWWS
+- HotFlip
+- GAN
+
+**Testing Procedure**:
+
+1. Input each original sample and its corresponding adversarial sample into the Llama model separately.
+2. Compare the model's classification results:
+   - If the results are different, the adversarial attack is considered successful.
+   - If the results are the same, the attack is considered failed.
+
+## Experimental Results
+
+### Attack Success Rates
+
+| Attack Method  | Attack Success Rate | Successful Samples |
+| -------------- | ------------------- | ------------------ |
+| TextFooler     | 50%                 | 10/20              |
+| TextBugger     | 45%                 | 9/20               |
+| SCPN           | 60%                 | 12/20              |
+| PWWS           | 50%                 | 10/20              |
+| HotFlip        | 45%                 | 9/20               |
+| GAN            | 70%                 | 14/20              |
+| **Average**    | **53.3%**           | **64/120 samples** |
+
+### Transferability Rates
+
+| Attack Method  | Transferability Rate | Transferred Samples |
+| -------------- | -------------------- | ------------------- |
+| TextFooler     | 75%                  | 6/8                 |
+| TextBugger     | 62.5%                | 5/8                 |
+| SCPN           | 70%                  | 7/10                |
+| PWWS           | 60%                  | 6/10                |
+| HotFlip        | 75%                  | 6/8                 |
+| GAN            | 81.25%               | 13/16               |
+| **Average**    | **71.7%**            | **43/60 samples**   |
+
+#### Conclusion
+
+Experimental results show that fine-tuning does not alleviate the vulnerabilities of general-purpose large language models (such as Llama) on text classification tasks, and these adversarial risks may be passed on to downstream models.
 
 
