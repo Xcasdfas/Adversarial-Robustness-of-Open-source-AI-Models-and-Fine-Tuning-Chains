@@ -120,4 +120,7 @@ We conducted a preliminary test on the transferability of adversarial robustness
 
 Experimental results show that fine-tuning does not alleviate the vulnerabilities of general-purpose large language models (such as Llama) on text classification tasks, and these adversarial risks may be passed on to downstream models.
 
+## Fine-tuning Chains Illustration
+Figure fine-tuning chain illustrates the implicit upstream and downstream relationships between models under the fine-tuning paradigm. These relationships form what we call *fine-tuning chains*.
+![fine-tuning chain](Model Chain.png)
 
