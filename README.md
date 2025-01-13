@@ -128,5 +128,16 @@ Experimental results show that fine-tuning does not alleviate the vulnerabilitie
 
 This figure illustrates the implicit upstream and downstream relationships between models under the fine-tuning paradigm. These relationships form what we call *fine-tuning chains*.
 
+## Detailed Processes of Adversarial Attacks in NLP
+In this section, we provide a comprehensive explanation of the general framework for adversarial attack techniques used in Natural Language Processing (NLP). 
 
+To assess the adversarial robustness of AI models, developers typically employ some existing adversarial attack techniques, such as TextBugger and HotFlip for attacking.
+Figure Adversarial attack flow chart shows the general framework for adversarial attack techniques.
+For NLP tasks, adversarial attacks generally start with an *original dataset*.
+For each sample in the original dataset (namely *Original Sample*), attack techniques identify vulnerable characters, words, or entities within the input text based on the feedback (e.g., gradient, logits, or probabilities) from the AI model under assessment.
+After that, the attack techniques generate new samples, known as *adversarial samples*, through perturbing the vulnerable elements via character insertion, word substitution, etc.
+Then, the generated adversarial samples are sent to the AI models under assessment.
+The attack is considered successful if the assessed model produces the incorrect output.
+![Adversarial attack flow chart](Adversarial%20attack%20flow%20chart.png)
 
+**Adversarial attack flow chart**  
