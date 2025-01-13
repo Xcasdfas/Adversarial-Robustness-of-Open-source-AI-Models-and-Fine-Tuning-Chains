@@ -145,8 +145,8 @@ The attack is considered successful if the assessed model produces the incorrect
 
 ## Upstream Model Extraction
 
-To identify upstream models in detail, we first examine each model's Upstream'' attribute.
-If it is not empty, we use this attribute as the index to retrieve the upstream model by matching each collected model's ``Model Name''.
+To identify upstream models in detail, we first examine each model's Upstream attribute.
+If it is not empty, we use this attribute as the index to retrieve the upstream model by matching each collected model's ''Model Name''.
 Otherwise, we utilize the descriptions in the ``Model Card'' to identify the name of the upstream model for matching.
 Considering that the names of upstream models are typically entities within the complex unstructured texts (as shown in **Figure Adversarial attack flow chart**), and traditional regular expression methods are ineffective for extracting such information or involving a large amount of labeled data for model training, we utilize ChatGPT, a popularly-used large language model (LLM),
 guiding it with a carefully crafted prompt to extract the names of upstream models.
@@ -167,14 +167,16 @@ In this section, we further analyzed which models are more frequently used as up
 Model reuse is prevalent on Hugging Face (HF), with 1\% of models being reused at least once.
 Table \ref{tab:upstream_model} shows the top 10 most popular models used as the upstream ones in the model chains on HF, 
 Where the "Downstream (\%)" column indicates the number of downstream models fine-tuned by the current model and the corresponding proportion of all upstream-downstream model pairs where the model is identified as upstream, 
-''Downstream Task'' indicates the downstream task where upstream models are most commonly applied, and ``Downloads (Ranking)'' shows the numbers of downloads and rankings of these models.
+''Downstream Task'' indicates the downstream task where upstream models are most commonly applied, and ''Downloads (Ranking)'' shows the numbers of downloads and rankings of these models.
 According to ''Downstream (\%)'', the top 10 (2.20\% of all reused text classification models) most popular upstream models contribute 30.93\% of model reuse for text classification on HF. 
 The result is similar to the analysis in download volume (details in Section \ref{sec:rq1.1_result}), both conforming to a certain degree of the long-tail effect.
 This phenomenon also emphasizes the importance of assessing the reliability of a few core models, as their potential vulnerabilities could significantly impact a wide range of downstream applications.
+![tab1](images/tab1.png)
+### **Tabel 1: THE MOST POPULAR UPSTREAM MODELS IN THE MODEL CHAINS ON HF**  
 
 
 ## Selection Criteria and Details of Selected Models and Chains
-In this appendix, we detail the chain and model selection process conducted to investigate the adversarial robustness of open-source models (RQ2) and the robustness changes during model fine-tuning (RQ3).
+In this section, we detail the chain and model selection process conducted to investigate the adversarial robustness of open-source models (RQ2) and the robustness changes during model fine-tuning (RQ3).
 First, of all the constructed model chains, we filter them by following criteria: 
 (1) all the datasets for model training or fine-tuning on the chain should be declared to guarantee the selected subjects are of higher description quality, and (2) all the models on the chain should own at least 30 downloads to ensure that the subjects have a certain level of popularity.
 After that, we obtained ten upstream-downstream model pairs, and 18 open-source models were involved (3 pairs shared the same upstream model). 
@@ -182,8 +184,8 @@ Table \ref{Model Information} details the selected chains and involved models.
 In addition, based on the results for RQ1, we additionally introduce the model with the most downloads (mrm8488/distil\-roberta-finetuned-financial-news-sentiment-analysis) and the model with the most reuse (distilbert-base-uncas\-ed-finetuned-sst-2-english) on HF. 
 Despite the fact that the model chains derived from cardiffnlp/twitter-roberta-base-sentiment-latest and mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis do not meet the selection criteria of this study, we decided to include these models in our research due to their top positions in terms of downloads and reuse on the Hugging Face platform. This decision was made to evaluate the security of these models, given their high practical application value.
 Finally, we obtained 20 models and ten upstream-downstream model chains to investigate their adversarial robustness for RQ2 and RQ3.
-\input{tab/RQ2_Model_info}
-
+![tab2](images/tab2.png)
+### **Tabel 2: THE SUBJECT FINE-TUNING CHAINS AND INVOLVED MODELS FOR ADVERSARIAL ROBUSTNESS ASSESSMENT(RQ2)**  
 
 ## Detailed Descriptions of Adversarial Attack Methods
 To comprehensively assess the adversarial robustness of the models, we utilized six widely-used and state-of-the-art adversarial sample generation techniques. In this appendix, we provide detailed descriptions of each method: TextBugger, HotFlip, TextFooler, PWWS, SCPN, and GAN.
