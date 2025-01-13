@@ -11,7 +11,7 @@ Documents the prompt templates utilized when interacting with Large Language Mod
 ### model_info.json
 The JSON file includes upstream model information of the text classification models collected from the Hugging Face platform. You can use the NEO4J database to establish a visualized upstream and downstream model chain.
 
-![Model Chain Visualization](graph.png)
+![Model Chain Visualization](images/graph.png)
 
 *This image shows the visualized upstream and downstream model chain established using the NEO4J database.*
 ### internal_threats_experimental_results.json
@@ -122,7 +122,7 @@ Experimental results show that fine-tuning does not alleviate the vulnerabilitie
 
 ## Fine-tuning Chains Illustration
 
-![Fine-tuning Chain](Model%20Chain.png)
+![Fine-tuning Chain](images/Model%20Chain.png)
 
 ### **Figure: Fine-tuning Chain**  
 
@@ -138,7 +138,7 @@ For each sample in the original dataset (namely *Original Sample*), attack techn
 After that, the attack techniques generate new samples, known as *adversarial samples*, through perturbing the vulnerable elements via character insertion, word substitution, etc.
 Then, the generated adversarial samples are sent to the AI models under assessment.
 The attack is considered successful if the assessed model produces the incorrect output.
-![Adversarial attack flow chart](Adversarial%20attack%20flow%20chart.png)
+![Adversarial attack flow chart](images/Adversarial%20attack%20flow%20chart.png)
 
 ### **Adversarial attack flow chart**  
 
@@ -151,12 +151,12 @@ Otherwise, we utilize the descriptions in the ``Model Card'' to identify the nam
 Considering that the names of upstream models are typically entities within the complex unstructured texts (as shown in **Figure Adversarial attack flow chart**), and traditional regular expression methods are ineffective for extracting such information or involving a large amount of labeled data for model training, we utilize ChatGPT, a popularly-used large language model (LLM),
 guiding it with a carefully crafted prompt to extract the names of upstream models.
 For a collected model, if there is no upstream model name extracted from the model descriptions, it is conisidered an isolated node recoreded in our dataset.
-**Figure prompt** shows the crafted prompt, where the ``Instruction'' gives the task description and ``Example'' guides the LLM to understand the task it is dealing with and the corresponding input-output format through specific examples.
+**Figure prompt** shows the crafted prompt, where the ``Instruction'' gives the task description and ''Example'' guides the LLM to understand the task it is dealing with and the corresponding input-output format through specific examples.
 
 Regarding the bias introduced by ChatGPT, we manually evaluate the performance of identifying upstream model names. 
-Initially, we randomly selected 100 models that are not annotated with upstream models in the ``Upstream'' attributes.
+Initially, we randomly selected 100 models that are not annotated with upstream models in the ''Upstream'' attributes.
 Three researchers manually annotate the upstream model names for each model respectively and establish a ground truth through discussion. 
 Based on this, we evaluated the proportion of correct identification, i.e. accuracy rate, and the results showed an accuracy rate of 97\% on the 100 samples, demonstrating promising reliability of our automatic upstream model identification.
-![Prompt](Prompt.png)
+![Prompt](images/Prompt.png)
 
 ### **Prompt**  
