@@ -124,7 +124,7 @@ Experimental results show that fine-tuning does not alleviate the vulnerabilitie
 
 ![Fine-tuning Chain](Model%20Chain.png)
 
-**Figure: Fine-tuning Chain**  
+### **Figure: Fine-tuning Chain**  
 
 This figure illustrates the implicit upstream and downstream relationships between models under the fine-tuning paradigm. These relationships form what we call *fine-tuning chains*.
 
@@ -140,4 +140,23 @@ Then, the generated adversarial samples are sent to the AI models under assessme
 The attack is considered successful if the assessed model produces the incorrect output.
 ![Adversarial attack flow chart](Adversarial%20attack%20flow%20chart.png)
 
-**Adversarial attack flow chart**  
+### **Adversarial attack flow chart**  
+
+
+## Upstream Model Extraction
+
+To identify upstream models in detail, we first examine each model's Upstream'' attribute.
+If it is not empty, we use this attribute as the index to retrieve the upstream model by matching each collected model's ``Model Name''.
+Otherwise, we utilize the descriptions in the ``Model Card'' to identify the name of the upstream model for matching.
+Considering that the names of upstream models are typically entities within the complex unstructured texts (as shown in **Figure Adversarial attack flow chart**), and traditional regular expression methods are ineffective for extracting such information or involving a large amount of labeled data for model training, we utilize ChatGPT, a popularly-used large language model (LLM),
+guiding it with a carefully crafted prompt to extract the names of upstream models.
+For a collected model, if there is no upstream model name extracted from the model descriptions, it is conisidered an isolated node recoreded in our dataset.
+**Figure prompt** shows the crafted prompt, where the ``Instruction'' gives the task description and ``Example'' guides the LLM to understand the task it is dealing with and the corresponding input-output format through specific examples.
+
+Regarding the bias introduced by ChatGPT, we manually evaluate the performance of identifying upstream model names. 
+Initially, we randomly selected 100 models that are not annotated with upstream models in the ``Upstream'' attributes.
+Three researchers manually annotate the upstream model names for each model respectively and establish a ground truth through discussion. 
+Based on this, we evaluated the proportion of correct identification, i.e. accuracy rate, and the results showed an accuracy rate of 97\% on the 100 samples, demonstrating promising reliability of our automatic upstream model identification.
+![Prompt](Prompt.png)
+
+### **Prompt**  
