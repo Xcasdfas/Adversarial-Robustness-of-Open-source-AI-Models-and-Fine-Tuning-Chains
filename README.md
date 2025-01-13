@@ -122,10 +122,9 @@ Experimental results show that fine-tuning does not alleviate the vulnerabilitie
 
 ## Fine-tuning Chains Illustration
 
-<div align="center">
 ![Fine-tuning Chain](images/Model%20Chain.png)
 ### **Figure: Fine-tuning Chain**  
-</div>
+
 
 This figure illustrates the implicit upstream and downstream relationships between models under the fine-tuning paradigm. These relationships form what we call *fine-tuning chains*.
 
@@ -140,10 +139,9 @@ After that, the attack techniques generate new samples, known as *adversarial sa
 Then, the generated adversarial samples are sent to the AI models under assessment.
 The attack is considered successful if the assessed model produces the incorrect output.
 
-<div align="center">
 ![Adversarial attack flow chart](images/Adversarial%20attack%20flow%20chart.png)
 ### **Adversarial attack flow chart**  
-</div>
+
 
 ## Upstream Model Extraction
 
@@ -160,7 +158,5 @@ Initially, we randomly selected 100 models that are not annotated with upstream 
 Three researchers manually annotate the upstream model names for each model respectively and establish a ground truth through discussion. 
 Based on this, we evaluated the proportion of correct identification, i.e. accuracy rate, and the results showed an accuracy rate of 97\% on the 100 samples, demonstrating promising reliability of our automatic upstream model identification.
 
-<div align="center">
 ![Prompt](images/Prompt.png)
 ### **Prompt**  
-</div>
