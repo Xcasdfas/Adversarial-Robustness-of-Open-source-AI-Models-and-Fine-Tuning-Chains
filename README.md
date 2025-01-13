@@ -140,7 +140,7 @@ Then, the generated adversarial samples are sent to the AI models under assessme
 The attack is considered successful if the assessed model produces the incorrect output.
 
 ![Adversarial attack flow chart](images/Adversarial%20attack%20flow%20chart.png)
-### **Adversarial attack flow chart**  
+### **Figure: Adversarial attack flow chart**  
 
 
 ## Upstream Model Extraction
@@ -159,4 +159,4 @@ Three researchers manually annotate the upstream model names for each model resp
 Based on this, we evaluated the proportion of correct identification, i.e. accuracy rate, and the results showed an accuracy rate of 97\% on the 100 samples, demonstrating promising reliability of our automatic upstream model identification.
 
 ![Prompt](images/Prompt.png)
-### **Prompt**  
+### **Figure: Prompt**  
