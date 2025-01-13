@@ -147,7 +147,7 @@ The attack is considered successful if the assessed model produces the incorrect
 
 To identify upstream models in detail, we first examine each model's Upstream attribute.
 If it is not empty, we use this attribute as the index to retrieve the upstream model by matching each collected model's ''Model Name''.
-Otherwise, we utilize the descriptions in the ``Model Card'' to identify the name of the upstream model for matching.
+Otherwise, we utilize the descriptions in the ''Model Card'' to identify the name of the upstream model for matching.
 Considering that the names of upstream models are typically entities within the complex unstructured texts (as shown in **Figure Adversarial attack flow chart**), and traditional regular expression methods are ineffective for extracting such information or involving a large amount of labeled data for model training, we utilize ChatGPT, a popularly-used large language model (LLM),
 guiding it with a carefully crafted prompt to extract the names of upstream models.
 For a collected model, if there is no upstream model name extracted from the model descriptions, it is conisidered an isolated node recoreded in our dataset.
