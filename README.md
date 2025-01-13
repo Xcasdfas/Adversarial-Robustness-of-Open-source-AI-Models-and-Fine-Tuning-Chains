@@ -160,3 +160,77 @@ Based on this, we evaluated the proportion of correct identification, i.e. accur
 
 ![Prompt](images/Prompt.png)
 ### **Figure: Prompt**  
+
+## Analysis of Frequently Used Upstream Models for Text Classification
+
+In this section, we further analyzed which models are more frequently used as upstream models for text classification.
+Model reuse is prevalent on Hugging Face (HF), with 1\% of models being reused at least once.
+Table \ref{tab:upstream_model} shows the top 10 most popular models used as the upstream ones in the model chains on HF, 
+Where the "Downstream (\%)" column indicates the number of downstream models fine-tuned by the current model and the corresponding proportion of all upstream-downstream model pairs where the model is identified as upstream, 
+''Downstream Task'' indicates the downstream task where upstream models are most commonly applied, and ``Downloads (Ranking)'' shows the numbers of downloads and rankings of these models.
+According to ''Downstream (\%)'', the top 10 (2.20\% of all reused text classification models) most popular upstream models contribute 30.93\% of model reuse for text classification on HF. 
+The result is similar to the analysis in download volume (details in Section \ref{sec:rq1.1_result}), both conforming to a certain degree of the long-tail effect.
+This phenomenon also emphasizes the importance of assessing the reliability of a few core models, as their potential vulnerabilities could significantly impact a wide range of downstream applications.
+
+
+## Selection Criteria and Details of Selected Models and Chains
+In this appendix, we detail the chain and model selection process conducted to investigate the adversarial robustness of open-source models (RQ2) and the robustness changes during model fine-tuning (RQ3).
+First, of all the constructed model chains, we filter them by following criteria: 
+(1) all the datasets for model training or fine-tuning on the chain should be declared to guarantee the selected subjects are of higher description quality, and (2) all the models on the chain should own at least 30 downloads to ensure that the subjects have a certain level of popularity.
+After that, we obtained ten upstream-downstream model pairs, and 18 open-source models were involved (3 pairs shared the same upstream model). 
+Table \ref{Model Information} details the selected chains and involved models.
+In addition, based on the results for RQ1, we additionally introduce the model with the most downloads (mrm8488/distil\-roberta-finetuned-financial-news-sentiment-analysis) and the model with the most reuse (distilbert-base-uncas\-ed-finetuned-sst-2-english) on HF. 
+Despite the fact that the model chains derived from cardiffnlp/twitter-roberta-base-sentiment-latest and mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis do not meet the selection criteria of this study, we decided to include these models in our research due to their top positions in terms of downloads and reuse on the Hugging Face platform. This decision was made to evaluate the security of these models, given their high practical application value.
+Finally, we obtained 20 models and ten upstream-downstream model chains to investigate their adversarial robustness for RQ2 and RQ3.
+\input{tab/RQ2_Model_info}
+
+
+## Detailed Descriptions of Adversarial Attack Methods
+To comprehensively assess the adversarial robustness of the models, we utilized six widely-used and state-of-the-art adversarial sample generation techniques. In this appendix, we provide detailed descriptions of each method: TextBugger, HotFlip, TextFooler, PWWS, SCPN, and GAN.
+### 1. **TextBugger**
+It first adopts a scoring mechanism to determine the importance of words or characters in the text based on their impact on the model’s output. Then, it employs a series of perturbation techniques to generate adversarial samples for attacking, such as character insertion, deletion, swapping, or word substitution, targeting these critical elements.
+
+---
+
+### 2. **HotFlip**
+It employs the model’s gradients to determine which characters or words, when altered, will have the most significant impact on the model’s decision.  
+HotFlip then applies these perturbations to generate adversarial samples, which can include flipping characters and inserting or deleting them, to minimize changes to the original input while maximizing the likelihood of fooling the model into making incorrect predictions.
+
+---
+
+### 3. **TextFooler**
+First, it identifies the most critical words in the input text by assessing changes in the output confidence as each word is removed or altered.  
+Next, TextFooler searches for semantically similar but syntactically different substitutes for these critical words to find replacements that maintain the original meaning as closely as possible.  
+Lastly, it evaluates the new text to ensure that the substitutions not only misled the targeted model into a wrong prediction but also preserved the original text's grammatical correctness and semantic coherence, thereby keeping changes imperceptible to human readers.
+
+---
+
+### 4. **PWWS**
+Initially, PWWS calculates the word saliency by modifying or removing each word and observing the change in the model’s output.  
+PWWS then seeks to find appropriate replacements for these words based on their semantic similarity, aiming to preserve the overall meaning of the text.  
+Finally, PWWS re-evaluates the adversarial text to ensure that the changes are not only effective at deceiving the model but also subtle enough to appear natural and coherent to human readers.
+
+---
+
+### 5. **SCPN**
+Firstly, SCPN identifies target sentences or phrases within the text that are important for the model’s prediction.  
+It then uses its trained paraphrase model to generate alternatives to these sentences that are semantically equivalent but lexically different.
+
+---
+
+### 6. **GAN**
+GAN hinges on a duel between two neural networks: a generator and a discriminator.  
+The generator creates data instances that mimic the true data distribution, aiming to fool the discriminator, which is trained to distinguish between the generator’s fake instances and real data.  
+Through this adversarial training process, the generator is guided to generate adversarial samples that are close to the original yet modified subtly to cause misclassification by the target model.
+
+---
+
+These attack techniques are designed according to various technical principles and could be used to evaluate the adversarial robustness of AI models from different aspects:  
+
+- **TextBugger** and **HotFlip** represent character-level attacks, generating adversarial samples through character insertion, deletion, and substitution.  
+- **TextFooler** and **PWWS** represent word-level attacks, achieving adversarial effects through word replacement.  
+- **SCPN** represents sentence-level attacks, generating semantically equivalent but syntactically different sentences to confuse the model.  
+- **GAN** represents generative adversarial network attacks, creating samples close to the original but subtly modified to deceive the discriminator.
+
+This diverse set of attack methods ensures that the experiments cover various types of adversarial attacks, providing a robust assessment of the models' performance under different adversarial environments.
+
