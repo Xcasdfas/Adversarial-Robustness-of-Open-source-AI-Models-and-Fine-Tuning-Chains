@@ -165,7 +165,7 @@ Based on this, we evaluated the proportion of correct identification, i.e. accur
 
 In this section, we further analyzed which models are more frequently used as upstream models for text classification.
 Model reuse is prevalent on Hugging Face (HF), with 1\% of models being reused at least once.
-Table 1 shows the top 10 most popular models used as the upstream ones in the model chains on HF, 
+**Table 1** shows the top 10 most popular models used as the upstream ones in the model chains on HF, 
 Where the "Downstream (\%)" column indicates the number of downstream models fine-tuned by the current model and the corresponding proportion of all upstream-downstream model pairs where the model is identified as upstream, 
 ''Downstream Task'' indicates the downstream task where upstream models are most commonly applied, and ''Downloads (Ranking)'' shows the numbers of downloads and rankings of these models.
 According to ''Downstream (\%)'', the top 10 (2.20\% of all reused text classification models) most popular upstream models contribute 30.93\% of model reuse for text classification on HF. 
@@ -180,7 +180,7 @@ In this section, we detail the chain and model selection process conducted to in
 First, of all the constructed model chains, we filter them by following criteria: 
 (1) all the datasets for model training or fine-tuning on the chain should be declared to guarantee the selected subjects are of higher description quality, and (2) all the models on the chain should own at least 30 downloads to ensure that the subjects have a certain level of popularity.
 After that, we obtained ten upstream-downstream model pairs, and 18 open-source models were involved (3 pairs shared the same upstream model). 
-Table \ref{Model Information} details the selected chains and involved models.
+**Table 2** details the selected chains and involved models.
 In addition, based on the results for RQ1, we additionally introduce the model with the most downloads (mrm8488/distil\-roberta-finetuned-financial-news-sentiment-analysis) and the model with the most reuse (distilbert-base-uncas\-ed-finetuned-sst-2-english) on HF. 
 Despite the fact that the model chains derived from cardiffnlp/twitter-roberta-base-sentiment-latest and mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis do not meet the selection criteria of this study, we decided to include these models in our research due to their top positions in terms of downloads and reuse on the Hugging Face platform. This decision was made to evaluate the security of these models, given their high practical application value.
 Finally, we obtained 20 models and ten upstream-downstream model chains to investigate their adversarial robustness for RQ2 and RQ3.
